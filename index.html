@@ -1,193 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raynex - IT Solutions</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-code"></i>
-                Raynex<span>.</span>
-            </a>
+            <a href="#" class="logo">Raynex<span>.</span></a>
             <div class="nav-links">
                 <a href="#home" data-i18n="nav_home">Главная</a>
                 <a href="#about" data-i18n="nav_about">О нас</a>
                 <a href="#services" data-i18n="nav_services">Услуги</a>
                 <a href="#contact" data-i18n="nav_contact">Контакты</a>
             </div>
-            <div class="nav-actions">
-                <select id="language-selector" class="lang-selector">
-                    <option value="ru">🇷🇺 Русский</option>
-                    <option value="en">🇬🇧 English</option>
-                    <option value="es">🇪🇸 Español</option>
-                </select>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <div class="mobile-menu" id="mobile-menu">
-            <a href="#home" data-i18n="nav_home">Главная</a>
-            <a href="#about" data-i18n="nav_about">О нас</a>
-            <a href="#services" data-i18n="nav_services">Услуги</a>
-            <a href="#contact" data-i18n="nav_contact">Контакты</a>
+            <select id="language-selector" class="lang-selector">
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
         </div>
     </nav>
 
     <!-- Главный экран -->
     <section id="home" class="hero">
-        <div class="hero-bg-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200" alt="Programming" class="hero-bg">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-rocket"></i>
-                <span data-i18n="hero_badge">IT Компания №1</span>
-            </div>
             <h1 data-i18n="hero_title">Создаём цифровое будущее</h1>
             <p data-i18n="hero_subtitle">Профессиональная разработка сайтов и IT-решения для вашего бизнеса</p>
-            <div class="hero-buttons">
-                <button class="cta-button" onclick="scrollToContact()">
-                    <i class="fas fa-arrow-right"></i>
-                    <span data-i18n="get_started">Начать проект</span>
-                </button>
-                <a href="#services" class="secondary-button">
-                    <span data-i18n="learn_more">Узнать больше</span>
-                </a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">100+</span>
-                <span class="stat-label" data-i18n="stat_projects">Проектов</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50+</span>
-                <span class="stat-label" data-i18n="stat_clients">Клиентов</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">8+</span>
-                <span class="stat-label" data-i18n="stat_years">Лет опыта</span>
-            </div>
+            <button class="cta-button" onclick="scrollToContact()" data-i18n="get_started">Начать проект</button>
         </div>
     </section>
 
     <!-- О нас -->
     <section id="about" class="about">
         <div class="section-header">
-            <span class="section-tag" data-i18n="about_tag">О нас</span>
-            <h2 data-i18n="about_title">Инновационная IT-компания</h2>
-            <p data-i18n="about_subtitle">Мы создаём технологии, которые меняют мир</p>
+            <h2 data-i18n="about_title">О компании</h2>
+            <p data-i18n="about_subtitle">Нам можно доверять</p>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p data-i18n="about_text">Raynex - это инновационная IT-компания, специализирующаяся на разработке современных веб-сайтов, мобильных приложений и программных решений. Мы помогаем бизнесам расти в цифровую эпоху.</p>
+                <p data-i18n="about_text">Raynex - это IT-компания, которая специализируется на разработке современных веб-сайтов, мобильных приложений и программных решений. Мы помогаем бизнесам расти в цифровую эпоху.</p>
                 <ul class="about-list">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="about_point1">Более 100 успешных проектов</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-users"></i>
-                        <span data-i18n="about_point2">Команда из 25+ специалистов</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-trophy"></i>
-                        <span data-i18n="about_point3">Работаем с 2015 года</span>
-                    </li>
+                    <li data-i18n="about_point1">✓ Качественная работа</li>
+                    <li data-i18n="about_point2">✓ Надёжность и ответственность</li>
+                    <li data-i18n="about_point3">✓ Поддержка после запуска</li>
                 </ul>
-                <button class="cta-button" onclick="scrollToContact()">
-                    <span data-i18n="contact_us">Связаться с нами</span>
-                </button>
             </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Team">
-                <div class="about-image-badge">
-                    <i class="fas fa-award"></i>
-                    <span data-i18n="best_company">Лучшая IT-компания 2024</span>
-                </div>
-            </div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Team" class="about-img">
         </div>
     </section>
 
     <!-- Услуги -->
     <section id="services" class="services">
         <div class="section-header">
-            <span class="section-tag" data-i18n="services_tag">Услуги</span>
-            <h2 data-i18n="services_title">Что мы предлагаем</h2>
-            <p data-i18n="services_subtitle">Комплексные решения для вашего бизнеса</p>
+            <h2 data-i18n="services_title">Наши услуги</h2>
+            <p data-i18n="services_subtitle">Что мы можем сделать для вас</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-globe"></i>
-                </div>
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400" alt="Web Development">
                 <h3 data-i18n="service1_title">Разработка сайтов</h3>
                 <p data-i18n="service1_text">Создаём современные, быстрые и удобные сайты любой сложности</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-code"></i>
-                </div>
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Programming">
                 <h3 data-i18n="service2_title">Программирование</h3>
                 <p data-i18n="service2_text">Разработка программного обеспечения под ваши задачи</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+                <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=400" alt="IT Consulting">
                 <h3 data-i18n="service3_title">IT-консалтинг</h3>
                 <p data-i18n="service3_text">Поможем выбрать правильную стратегию развития в digital-сфере</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 data-i18n="service4_title">Мобильные приложения</h3>
-                <p data-i18n="service4_text">Разработка нативных и кроссплатформенных приложений</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <h3 data-i18n="service5_title">Облачные решения</h3>
-                <p data-i18n="service5_text">Внедрение и поддержка облачной инфраструктуры</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 data-i18n="service6_title">Кибербезопасность</h3>
-                <p data-i18n="service6_text">Защита вашего бизнеса от цифровых угроз</p>
-                <a href="#contact" class="service-link">
-                    <span data-i18n="order_now">Заказать</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -195,87 +83,47 @@
     <!-- Контакты -->
     <section id="contact" class="contact">
         <div class="section-header">
-            <span class="section-tag" data-i18n="contact_tag">Контакты</span>
             <h2 data-i18n="contact_title">Свяжитесь с нами</h2>
-            <p data-i18n="contact_subtitle">Мы ответим в течение 24 часов</p>
+            <p data-i18n="contact_subtitle">Мы всегда на связи</p>
         </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4 data-i18n="email_label">Email</h4>
-                        <a href="mailto:info@raynex.com">info@raynex.com</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4 data-i18n="phone_label">Телефон</h4>
-                        <a href="tel:+1234567890">+1 (234) 567-890</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4 data-i18n="address_label">Адрес</h4>
-                        <p data-i18n="address">123 Tech Street, Silicon Valley, CA</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4 data-i18n="hours_label">Часы работы</h4>
-                        <p data-i18n="hours">Пн-Пт: 9:00 - 18:00</p>
-                    </div>
-                </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4 data-i18n="email_label">Email:</h4>
+                <a href="mailto:pcmontaje1@gmail.com">pcmontaje1@gmail.com</a>
             </div>
-            <form id="order-form" class="order-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name" data-i18n="name_label">Имя</label>
-                        <input type="text" id="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-i18n="email_form_label">Email</label>
-                        <input type="email" id="email" required placeholder="john@example.com">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="service-type" data-i18n="service_label">Тип услуги</label>
-                    <select id="service-type">
-                        <option value="website" data-i18n="service_website">Сайт</option>
-                        <option value="app" data-i18n="service_app">Приложение</option>
-                        <option value="consultation" data-i18n="service_consult">Консультация</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message" data-i18n="message_label">Сообщение</label>
-                    <textarea id="message" rows="5" placeholder="Опишите ваш проект..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i>
-                    <span data-i18n="submit_order">Отправить заявку</span>
-                </button>
-            </form>
+            <div class="contact-item">
+                <h4 data-i18n="phone_label">Телефон:</h4>
+                <a href="tel:+34607416282">+34 607 416 282</a>
+            </div>
+            <div class="contact-item">
+                <h4 data-i18n="hours_label">Часы работы:</h4>
+                <p data-i18n="hours">24/7</p>
+            </div>
         </div>
+        <form id="order-form" class="order-form">
+            <div class="form-group">
+                <input type="text" id="name" required data-i18n-placeholder="name_placeholder" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" required data-i18n-placeholder="email_placeholder" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <select id="service-type">
+                    <option value="website" data-i18n="service_website">Сайт</option>
+                    <option value="app" data-i18n="service_app">Приложение</option>
+                    <option value="consultation" data-i18n="service_consult">Консультация</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="4" data-i18n-placeholder="message_placeholder" placeholder="Опишите ваш проект"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="submit_order">Отправить заявку</button>
+        </form>
     </section>
 
     <!-- Футер -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-code"></i>
-                <span>Raynex.</span>
-            </div>
-            <p>&copy; 2024 Raynex. <span data-i18n="footer_rights">Все права защищены</span></p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-            </div>
-        </div>
+        <p>&copy; 2024 Raynex. <span data-i18n="footer_rights">Все права защищены</span></p>
     </footer>
 
     <script src="translations.js"></script>
