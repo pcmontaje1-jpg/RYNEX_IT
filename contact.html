@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raynex - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Raynex<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Контакты -->
+    <section class="page-content">
+        <div class="section-header">
+            <h1>Contact Us</h1>
+            <p>We are always available</p>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Email:</h4>
+                <a href="mailto:pcmontaje1@gmail.com">pcmontaje1@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <h4>Phone:</h4>
+                <a href="tel:+34607416282">+34 607 416 282</a>
+            </div>
+            <div class="contact-item">
+                <h4>Working hours:</h4>
+                <p>24/7</p>
+            </div>
+        </div>
+        <form id="order-form" class="order-form">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="service-type">Service Type:</label>
+                <select id="service-type" name="service_type">
+                    <option value="website">Website Development</option>
+                    <option value="app">Mobile Application</option>
+                    <option value="consulting">IT Consulting</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Project Description:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Describe your project..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Request</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Raynex. All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
