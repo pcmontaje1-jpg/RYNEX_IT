@@ -9,6 +9,9 @@ body {
     line-height: 1.6;
     color: #fff;
     background: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Навигация */
@@ -47,24 +50,18 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
 }
 
-.nav-links a:hover {
-    color: #ccc;
-}
-
-.lang-selector {
-    background: #111;
+.nav-links a:hover,
+.nav-links a.active {
     color: #fff;
-    border: 1px solid #333;
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    border-bottom-color: #fff;
 }
 
 /* Главный экран */
@@ -77,6 +74,7 @@ body {
     text-align: center;
     overflow: hidden;
     background: #000;
+    margin-top: 60px;
 }
 
 .hero-bg {
@@ -86,8 +84,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
-    filter: grayscale(100%);
+    opacity: 0.4;
 }
 
 .hero-content {
@@ -95,6 +92,8 @@ body {
     z-index: 1;
     color: #fff;
     padding: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
 }
 
 .hero h1 {
@@ -108,10 +107,11 @@ body {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     font-weight: 300;
-    color: #ccc;
+    color: #eee;
 }
 
 .cta-button {
+    display: inline-block;
     background: #fff;
     color: #000;
     border: none;
@@ -121,6 +121,7 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .cta-button:hover {
@@ -128,11 +129,13 @@ body {
     transform: translateY(-3px);
 }
 
-/* Секции */
-section {
-    padding: 5rem 5%;
+/* Страницы */
+.page-content {
+    flex: 1;
+    padding: 120px 5% 5rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .section-header {
@@ -140,7 +143,7 @@ section {
     margin-bottom: 3rem;
 }
 
-.section-header h2 {
+.section-header h1 {
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 0.5rem;
@@ -162,7 +165,6 @@ section {
 .about-img {
     width: 100%;
     border-radius: 10px;
-    filter: grayscale(100%);
     border: 1px solid #333;
 }
 
@@ -174,6 +176,7 @@ section {
 
 .about-list {
     list-style: none;
+    margin-bottom: 2rem;
 }
 
 .about-list li {
@@ -186,7 +189,6 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
 }
 
 .service-card {
@@ -195,6 +197,8 @@ section {
     overflow: hidden;
     border: 1px solid #333;
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
@@ -206,7 +210,6 @@ section {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    filter: grayscale(100%);
 }
 
 .service-card h3 {
@@ -216,6 +219,20 @@ section {
 
 .service-card p {
     padding: 0 1.5rem 1.5rem;
+    color: #ccc;
+    flex: 1;
+}
+
+.service-link {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.service-link:hover {
     color: #ccc;
 }
 
@@ -262,6 +279,13 @@ section {
 
 .form-group {
     margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 500;
 }
 
 .form-group input,
@@ -313,12 +337,13 @@ footer {
     color: #fff;
     text-align: center;
     padding: 2rem 0;
+    margin-top: auto;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        gap: 1rem;
     }
     
     .hero h1 {
@@ -333,7 +358,7 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    section {
-        padding: 3rem 5%;
+    .page-content {
+        padding: 100px 5% 3rem;
     }
 }
