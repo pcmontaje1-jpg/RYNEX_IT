@@ -1,4 +1,86 @@
-<section id="contact" class="contact">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raynex - IT Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Raynex<span>.</span></a>
+            <div class="nav-links">
+                <a href="#home" data-i18n="nav_home">Главная</a>
+                <a href="#about" data-i18n="nav_about">О нас</a>
+                <a href="#services" data-i18n="nav_services">Услуги</a>
+                <a href="#contact" data-i18n="nav_contact">Контакты</a>
+            </div>
+            <select id="language-selector" class="lang-selector">
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Создаём цифровое будущее</h1>
+            <p data-i18n="hero_subtitle">Профессиональная разработка сайтов и IT-решения для вашего бизнеса</p>
+            <button class="cta-button" onclick="scrollToContact()" data-i18n="get_started">Начать проект</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200" alt="Programming" class="hero-bg">
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2 data-i18n="about_title">О компании</h2>
+            <p data-i18n="about_subtitle">Мы - команда профессионалов в сфере IT</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-i18n="about_text">Raynex - это инновационная IT-компания, специализирующаяся на разработке современных веб-сайтов, мобильных приложений и программных решений. Мы помогаем бизнесам расти в цифровую эпоху.</p>
+                <ul class="about-list">
+                    <li data-i18n="about_point1">Более 100 успешных проектов</li>
+                    <li data-i18n="about_point2">Команда из 25+ специалистов</li>
+                    <li data-i18n="about_point3">Работаем с 2015 года</li>
+                </ul>
+            </div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Team" class="about-img">
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2 data-i18n="services_title">Наши услуги</h2>
+            <p data-i18n="services_subtitle">Что мы можем сделать для вас</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=400" alt="Web Development">
+                <h3 data-i18n="service1_title">Разработка сайтов</h3>
+                <p data-i18n="service1_text">Создаём современные, быстрые и удобные сайты любой сложности</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Programming">
+                <h3 data-i18n="service2_title">Программирование</h3>
+                <p data-i18n="service2_text">Разработка программного обеспечения под ваши задачи</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=400" alt="IT Consulting">
+                <h3 data-i18n="service3_title">IT-консалтинг</h3>
+                <p data-i18n="service3_text">Поможем выбрать правильную стратегию развития в digital-сфере</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заказа --><section id="contact" class="contact">
         <div class="section-header">
             <h2 data-i18n="contact_title">Заказать проект</h2>
             <p data-i18n="contact_subtitle">Расскажите нам о вашей идее</p>
