@@ -1,0 +1,35 @@
+<section id="contact" class="contact">
+        <div class="section-header">
+            <h2 data-i18n="contact_title">Заказать проект</h2>
+            <p data-i18n="contact_subtitle">Расскажите нам о вашей идее</p>
+        </div>
+        <form id="order-form" class="order-form">
+            <div class="form-group">
+                <input type="text" id="name" required placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" required placeholder="Email">
+            </div>
+            <div class="form-group">
+                <select id="service-type">
+                    <option value="website" data-i18n="service_website">Сайт</option>
+                    <option value="app" data-i18n="service_app">Приложение</option>
+                    <option value="consultation" data-i18n="service_consult">Консультация</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="4" placeholder="Опишите ваш проект"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="submit_order">Отправить заявку</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Raynex. <span data-i18n="footer_rights">Все права защищены</span></p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
