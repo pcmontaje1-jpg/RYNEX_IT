@@ -1,9 +1,7 @@
-// Функция для скролла к контактам (если на главной)
 function scrollToContact() {
     window.location.href = 'contact.html';
 }
 
-// Обработка формы заказа
 document.addEventListener('DOMContentLoaded', function() {
     const orderForm = document.getElementById('order-form');
     
@@ -16,42 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const serviceType = document.getElementById('service-type').value;
             const message = document.getElementById('message').value;
             
-            // Показываем индикацию загрузки
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            const subject = encodeURIComponent('New Order from Rynex IT Website');
+            const body = encodeURIComponent(
+                `Name: ${name}\n` +
+                `Email: ${email}\n` +
+                `Service Type: ${serviceType}\n\n` +
+                `Project Description:\n${message}`
+            );
             
-            // Отправка на почту через FormSubmit
-            fetch('https://formsubmit.co/ajax/pcmontaje1@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    service_type: serviceType,
-                    message: message,
-                    _subject: 'New order from Raynex website',
-                    _template: 'table',
-                    _captcha: 'false'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Thank you for your request! We will contact you soon.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Sorry, there was an error. Please email us directly at pcmontaje1@gmail.com');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
+            window.location.href = `mailto:pcmontaje1@gmail.com?subject=${subject}&body=${body}`;
+            
+            alert('Your email client has been opened with your request. Please send the email to complete your order.');
+            
+            this.reset();
         });
     }
 });
