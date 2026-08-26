@@ -1,95 +1,57 @@
-// Функция для переключения языков
-function changeLanguage(lang) {
-    // Переводим все элементы с data-i18n
-    const elements = document.querySelectorAll('[data-i18n]');
-    
-    elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-    
-    // Переводим placeholder'ы
-    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
-    
-    placeholders.forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang] && translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
-    });
-    
-    // Обновляем язык в HTML
-    document.documentElement.lang = lang;
-    
-    // Сохраняем выбранный язык
-    localStorage.setItem('preferred-language', lang);
-}
-
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    // Загружаем сохранённый язык или используем русский по умолчанию
-    const savedLang = localStorage.getItem('preferred-language') || 'ru';
-    
-    // Устанавливаем выбранный язык в селекторе
-    const langSelector = document.getElementById('language-selector');
-    if (langSelector) {
-        langSelector.value = savedLang;
-    }
-    
-    // Применяем перевод
-    changeLanguage(savedLang);
-    
-    // Добавляем обработчик изменения языка
-    if (langSelector) {
-        langSelector.addEventListener('change', function(e) {
-            changeLanguage(e.target.value);
-        });
-    }
-    
-    // Плавная прокрутка для навигации
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-});
-
-// Функция для скролла к контактам
+// Функция для скролла к контактам (если на главной)
 function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ 
-        behavior: 'smooth' 
-    });
+    window.location.href = 'contact.html';
 }
 
 // Обработка формы заказа
-document.getElementById('order-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const orderForm = document.getElementById('order-form');
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const serviceType = document.getElementById('service-type').value;
-    const message = document.getElementById('message').value;
-    
-    // Здесь можно добавить отправку данных на сервер
-    console.log('Order submitted:', { name, email, serviceType, message });
-    
-    // Показываем уведомление об успешной отправке
-    const currentLang = localStorage.getItem('preferred-language') || 'ru';
-    
-    const successMessages = {
-        ru: 'Спасибо за заявку! Мы свяжемся с вами в ближайшее время.',
-        en: 'Thank you for your request! We will contact you soon.',
-        es: '¡Gracias por tu solicitud! Te contactaremos pronto.'
-    };
-    
-    alert(successMessages[currentLang] || successMessages.ru);
-    
-    // Очищаем форму
-    this.reset();
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const serviceType = document.getElementById('service-type').value;
+            const message = document.getElementById('message').value;
+            
+            // Показываем индикацию загрузки
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Отправка на почту через FormSubmit
+            fetch('https://formsubmit.co/ajax/pcmontaje1@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    service_type: serviceType,
+                    message: message,
+                    _subject: 'New order from Raynex website',
+                    _template: 'table',
+                    _captcha: 'false'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Thank you for your request! We will contact you soon.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Sorry, there was an error. Please email us directly at pcmontaje1@gmail.com');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
 });
